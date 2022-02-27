@@ -6,14 +6,8 @@
 </head>
 <body>
 <script type="module">
-    import init, { hi_mate } from './pkg/mate_rust_wasm.js';
-
-    async function run() {
-        await init();
-        hi_mate();
-    }
-
-    run();
+    import init from './pkg/mate_rust_wasm.js';
+    init();
 </script>
 </body>
 </html>

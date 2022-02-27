@@ -1,13 +1,11 @@
 use wasm_bindgen::prelude::*;
 
-#[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-    fn prompt(s: &str) -> String;
-}
-
-#[wasm_bindgen]
-pub fn hi_mate() {
-    let name = prompt("What's ye name?");
-    alert(&format!("Ho hi, {}!", name));
+#[wasm_bindgen(start)]
+pub fn run() -> Result<(), JsValue> {
+    let window = web_sys::window().expect("No global `window` found");
+    let name = window.prompt_with_message("What's ye name?").unwrap();
+    if let Some(v) = name {
+        window.alert_with_message(&format!("Ho hi, {}!", v));
+    }
+    Ok(())
 }
