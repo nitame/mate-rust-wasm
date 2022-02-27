@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rust + wasm</title>
+</head>
+<body>
+<script type="module">
+    import init, { hi_mate } from './pkg/mate_rust_wasm.js';
+
+    async function run() {
+        await init();
+        hi_mate();
+    }
+
+    run();
+</script>
+</body>
+</html>
