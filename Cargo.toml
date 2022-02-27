@@ -3,12 +3,4 @@ name = "mate-rust-wasm"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-crate-type = ["cdylib"]
-
 [dependencies]
-wasm-bindgen = "0.2.79"
-
-[dependencies.web-sys]
-version = "0.3.56"
-features = ["Window"]

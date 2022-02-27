@@ -1,8 +1,13 @@
 ## Build
 
-`wasm-pack build --target web`
+`cargo build --target wasm32-wasi --release`
 
 ## Run
-`python3 -m http.server 8000`
+`wasmer target/wasm32-wasi/release/mate-rust-wasm.wasm`
 
-Output: [hi mate](http://localhost:8000/)
+Output:
+```text
+What's ye name?
+nit
+Ho hi, nit!
+```
