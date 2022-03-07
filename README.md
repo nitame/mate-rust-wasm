@@ -2,17 +2,12 @@
 
 This project is aimed to show how to build and deploy a Rust code to wasm and wasi.
 
-There are 3 main steps as follow:
+There are 3 main example projects.
 
-* run a standalone Rust code in the terminal
-* run a wasm_bindgen Rust code in the browser
-* run a wasi rust code in the terminal
-
-Each step is commit with a tag to ease the switch between code version
-
-## Instructions
-
-[Follow step here](Instructions.md)
+Each project build and run a simple rust code into different target
+- standalone rust code targeted wasm
+- rust code targeted wasm with wasm-pack tools
+- rust code targeted wasmer runtime with wasi
 
 ## Prerequisites
 Tools required to launch examples
@@ -20,9 +15,12 @@ Tools required to launch examples
 - [wasm-pack & wasm-bindgen](https://rustwasm.github.io/wasm-pack/installer/)
 - [wasmer](https://github.com/wasmerio/wasmer#install)
 
-rustup target toolchains:
+rustup targets toolchain required:
 
 ```text
 wasm32-unknown-unknown
 wasm32-wasi
 ```
+
+To add a target:
+`rustup add --target wasm32-unknowm-unknown`
