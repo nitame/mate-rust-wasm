@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rust+Wasm with wasm-pack</title>
+</head>
+<body>
+<script type="module">
+    import init, {hi_mate} from "./pkg/simple_example_with_wasm_pack.js";
+    init().then(() => {
+        hi_mate()
+    });
+</script>
+</body>
+</html>

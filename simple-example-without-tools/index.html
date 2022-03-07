@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title - simple rust wasm</title>
+</head>
+<body>
+<script>
+    WebAssembly.instantiateStreaming(fetch('target/wasm32-unknown-unknown/release/simple_example_without_tools.wasm'))
+        .then(obj => {
+            // use function answer
+            console.log('The answer is: ', obj.instance.exports.answer());
+            // construct string from exported functions in rust code
+            const linearMemory = obj.instance.exports.memory;
+            const offset = obj.instance.exports.hi_mate();
+            const len = obj.instance.exports.hi_mate_len();
+            const stringBuffer = new Uint8Array(linearMemory.buffer, offset, len);
+            let str = '';
+            for (let i = 0; i < stringBuffer.length; i++) {
+                str += String.fromCharCode(stringBuffer[i]);
+            }
+            console.log(str);
+        });
+</script>
+</body>
+</html>
